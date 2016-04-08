@@ -88,7 +88,7 @@ This demo app was developed for the CERN Spring Campus 2016 at the Vilnius Unive
 				<version>2.0.9.101.v20160316</version>
 				<configuration>
 					<promote>true</promote>
-					<gcloud_directory>/home/bwolff/dev/lib/google/google-cloud-sdk</gcloud_directory>
+					<gcloud_directory>${env.GCLOUD_HOME}</gcloud_directory>
 				</configuration>
 			</plugin>
 		</plugins>
