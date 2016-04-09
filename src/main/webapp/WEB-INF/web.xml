@@ -5,13 +5,23 @@
 
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
     <servlet>
-        <servlet-name>demo</servlet-name>
-        <servlet-class>myapp.DemoServlet</servlet-class>
+        <servlet-name>alice</servlet-name>
+        <servlet-class>de.wolff.springcampus.dh.servlet.AliceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>bob</servlet-name>
+        <servlet-class>de.wolff.springcampus.dh.servlet.BobServlet</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
-        <servlet-name>demo</servlet-name>
-        <url-pattern>/demo</url-pattern>
+        <servlet-name>alice</servlet-name>
+        <url-pattern>/alice</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bob</servlet-name>
+        <url-pattern>/bob</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

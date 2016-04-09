@@ -1,18 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <title>App Engine Demo</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <title>Diffie-Hellman Key Exchange Demo - CERN Spring Campus 2016</title>
   </head>
   <body>
-    <div id="result">Loading...</div>
-
-    <script>
-$(document).ready(function() {
-  $.getJSON('/demo', function(data) {
-    $('#result').html("Hello, " + data.name);
-  });
-});
-    </script>
+    <ul>
+        <li><a href="/alice">Alice</a></li>
+        <li><a href="/bob">Bob</a></li>
+    </ul>
   </body>
 </html>

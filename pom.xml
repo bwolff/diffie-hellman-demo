@@ -9,9 +9,7 @@
 	<groupId>de.bwolff.springcampus</groupId>
 	<artifactId>diffie-hellman-demo</artifactId>
 	<name>Diffie-Hellman Demo</name>
-	<description>Demo application for doing a Diffie-Hellman key exchange.
-
-This demo app was developed for the CERN Spring Campus 2016 at the Vilnius University in Lithuania.</description>
+	<description>Demo application for doing a Diffie-Hellman key exchange. This demo app was developed by Benjamin Wolff for a presentation at the CERN Spring Campus 2016 at the Vilnius University in Lithuania.</description>
 	<inceptionYear>2016</inceptionYear>
 
 	<properties>
