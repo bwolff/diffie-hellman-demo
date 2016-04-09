@@ -1,5 +1,6 @@
 package de.wolff.springcampus.dh.engine;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -13,7 +14,7 @@ import java.util.Random;
  * The DH exchange parameters p and g are chosen randomly and also in a safe way, which means that
  * the prime numbers are chosen so that they fulfill certain properties so that they create a secure
  * sub-group. For more information about how to choose secure values you may want to read chapter 11
- * of the book "Cryptography Engineering" (2011) by Bruce Schneier et al.
+ * of the book "Cryptography Engineering" (2010) by Bruce Schneier et al.
  *
  * For saving computation time and in order to have numbers for the parameters that are not too
  * long, the range of p and g is not very large! This program is intended to do a real-life DH key
@@ -24,7 +25,7 @@ import java.util.Random;
  *
  * @author Benjamin Wolff
  */
-public class DhKeyExchange {
+public class DhKeyExchange implements Serializable {
 
     private static final BigInteger ONE = BigInteger.ONE;
     private static final BigInteger TWO = BigInteger.valueOf(2);
@@ -180,10 +181,6 @@ public class DhKeyExchange {
         padlockCode = k.mod(UPPER_BOUND_FOR_PADLOCK_CODE);
     }
 
-    public String getPadlockCodeAsString() {
-        return String.format("%04d", padlockCode);
-    }
-
     private void ensureNotNull(String errorMessage, Object... objects) {
         for (Object object : objects) {
             if (object == null) {
@@ -232,6 +229,10 @@ public class DhKeyExchange {
 
     public BigInteger getPadlockCode() {
         return padlockCode;
+    }
+
+    public String getPadlockCodeAsString() {
+        return (padlockCode != null) ? String.format("%04d", padlockCode) : null;
     }
 
     @Override

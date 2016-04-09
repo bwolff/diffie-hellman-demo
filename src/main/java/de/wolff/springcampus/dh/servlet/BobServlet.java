@@ -3,7 +3,7 @@ package de.wolff.springcampus.dh.servlet;
 public class BobServlet extends DhKeyExchangeServlet {
 
     @Override
-    protected Role getRole() {
-        return Role.BOB;
+    protected DhRole getRole() {
+        return DhRole.bob;
     }
 }

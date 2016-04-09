@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE web-app PUBLIC
- "-//Oracle Corporation//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        version="2.5">
 
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+    <display-name>Diffie-Hellman Key Exchange Demo</display-name>
+    
+    <!-- This filter is a "hack" to cause GAE to flush the session data to the datastore and memcache after every
+         request. See the JavaDoc of the filter class for details. -->
+    <filter>
+        <filter-name>gaeSessionFlushFilter</filter-name>
+        <filter-class>de.wolff.springcampus.dh.servlet.GaeSessionFlushFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>gaeSessionFlushFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>alice</servlet-name>
         <servlet-class>de.wolff.springcampus.dh.servlet.AliceServlet</servlet-class>
@@ -12,7 +25,7 @@
         <servlet-name>bob</servlet-name>
         <servlet-class>de.wolff.springcampus.dh.servlet.BobServlet</servlet-class>
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>alice</servlet-name>
         <url-pattern>/alice</url-pattern>
@@ -21,6 +34,10 @@
         <servlet-name>bob</servlet-name>
         <url-pattern>/bob</url-pattern>
     </servlet-mapping>
+
+    <session-config>
+        <session-timeout>1440</session-timeout> <!-- 24 hours -->
+    </session-config>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
