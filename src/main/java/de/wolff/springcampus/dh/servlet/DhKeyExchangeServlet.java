@@ -19,7 +19,7 @@ public abstract class DhKeyExchangeServlet extends HttpServlet {
 
         private final String label;
 
-        private DhRole(String label) {
+        DhRole(String label) {
             this.label = label;
         }
 
