@@ -141,13 +141,13 @@ public abstract class DhKeyExchangeServlet extends HttpServlet {
     }
 
     private void setPandG() {
-        BigInteger p = new BigInteger(getCurrentRequest().getParameter("p"));
-        BigInteger g = new BigInteger(getCurrentRequest().getParameter("g"));
+        BigInteger p = new BigInteger(getSanitizedParameterFromCurrentRequest("p"));
+        BigInteger g = new BigInteger(getSanitizedParameterFromCurrentRequest("g"));
         getCurrentDhKeyExchange().setValuesForPandG(p, g);
     }
 
     private void setGxOfOther() {
-        BigInteger gxOther = new BigInteger(getCurrentRequest().getParameter("gx_other"));
+        BigInteger gxOther = new BigInteger(getSanitizedParameterFromCurrentRequest("gx_other"));
         getCurrentDhKeyExchange().setGxOther(gxOther);
     }
 
@@ -159,6 +159,24 @@ public abstract class DhKeyExchangeServlet extends HttpServlet {
 
     private void redirectToDhJsp() throws IOException {
         getCurrentResponse().sendRedirect("/" + getRole().name());
+    }
+
+    private String getSanitizedParameterFromCurrentRequest(String parameterKey) {
+        return sanitizeNumericalParameter(getCurrentRequest().getParameter(parameterKey));
+    }
+
+    private String sanitizeNumericalParameter(String parameter) {
+        if (parameter == null || parameter.isEmpty()) {
+            return parameter;
+        }
+
+        parameter = parameter.trim();
+
+        if (!parameter.matches("[0-9]+")) {
+            throw new IllegalArgumentException("Invalid numerical parameter: " + parameter);
+        }
+
+        return parameter;
     }
 
     private HttpServletRequest getCurrentRequest() {
