@@ -10,9 +10,18 @@ input[type="number"] {
 
 input[type="number"],
 input[type="text"] {
-    width: 10em;
+    width: 8em;
 }
 
 label {
+    display: inline-block;
     padding-right: 0.5em;
+}
+
+form {
+    margin-bottom: 1em;
+}
+
+form input[type="submit"] {
+    margin-top: 0.5em;
 }
