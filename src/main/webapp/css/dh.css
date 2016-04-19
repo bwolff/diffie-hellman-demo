@@ -13,7 +13,7 @@ input[type="number"] {
 }
 
 .dh-form {
-    margin-bottom: 0.5em;
+    margin-bottom: 10px;
 }
 
 .dh-form__title {
@@ -21,22 +21,22 @@ input[type="number"] {
 }
 
 .dh-form__body {
-    margin-top: 0.3em;
+    margin-top: 5px;
 }
 
 .dh-form__input-body {
     display: inline-block;
     vertical-align: top;
-    width: 18em;
+    width: 15em;
 }
 
 .dh-form__input-row {
-    margin-bottom: 0.1em;
+    margin-bottom: 5px;
 }
 
 .dh-form__label {
     display: inline-block;
-    padding-right: 0.5em;
+    padding-right: 5px;
 }
 
 .dh-form__label--step-1 {
@@ -56,7 +56,7 @@ input[type="number"] {
 }
 
 .dh-form__label--step-5 {
-    width: 8.5em;
+    width: 6.5em;
 }
 
 .dh-form__label--strong {
@@ -69,7 +69,6 @@ input[type="number"] {
 
 .dh-form__img-body {
     display: inline-block;
-    margin-left: 2em;
 }
 
 .dh-form__img {
